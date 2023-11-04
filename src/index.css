@@ -5,16 +5,18 @@ body,
 #root,
 .app,
 .content {
-  height: 100%;
   width: 100%;
   font-family: 'Source Sans 3', sans-serif;
+
 }
 .app{
   display: flex;
   position: relative;
+  
 }
 
 ::-webkit-scrollbar{
+
   width: 10px;
 
 }
