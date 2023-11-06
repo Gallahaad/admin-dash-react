@@ -38,21 +38,23 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
-
   return (
     <Box
       sx={{
         "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`,
         },
+
         "& .pro-icon-wrapper": {
-          background: "transparent !important",
+          backgroundColor: "transparent !important",
         },
+
         "& .pro-inner-item": {
           padding: "5px 35px 5px 20px !important",
         },
+
         "& .pro-inner-item:hover": {
           color: "#868dfb !important",
         },
@@ -79,20 +81,17 @@ const Sidebar = () => {
                 ml="15px"
               >
                 <Typography variant="h3" color={colors.grey[100]}>
-                  Dashboard
+                  ADMINIS
                 </Typography>
-                <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
-                  <MenuOutlinedIcon />
-                </IconButton>
+                <MenuOutlinedIcon />
               </Box>
             )}
           </MenuItem>
-
           {!isCollapsed && (
             <Box mb="25px">
               <Box display="flex" justifyContent="center" alignItems="center">
                 <img
-                  alt="Profile_user"
+                  alt="Profile-Image"
                   width="100px"
                   height="100px"
                   src={`../../assets/user.png`}
@@ -106,16 +105,15 @@ const Sidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0 " }}
                 >
-                  Utkarsh Misra
+                  John Doe
                 </Typography>
-                <Typography variant="h5" color={colors.greenAccent[500]}>
-                  Administrator
+                <Typography variant="h6" color={colors.greenAccent[500]}>
+                  VP Fancy Admin
                 </Typography>
               </Box>
             </Box>
           )}
-
-          <Box padding={isCollapsed ? undefined : "10%"}>
+          <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
               title="Dashboard"
               to="/"
@@ -123,7 +121,6 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
             <Typography
               variant="h6"
               color={colors.grey[300]}
@@ -160,7 +157,7 @@ const Sidebar = () => {
               Pages
             </Typography>
             <Item
-              title="Profile Form"
+              title="Profile"
               to="/form"
               icon={<PersonOutlinedIcon />}
               selected={selected}
@@ -202,7 +199,7 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Line"
+              title="Line Chart"
               to="/line"
               icon={<TimelineOutlinedIcon />}
               selected={selected}
